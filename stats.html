@@ -1,0 +1,153 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <title>Playlist Stats</title>
+     <style>
+         body {
+             font-family: 'Helvetica', Arial, sans-serif;
+             background-color: #1a1a1a;
+             color: #ffffff;
+             margin: 20px;
+         }
+ 
+         h1 {
+             text-align: center;
+             margin-bottom: 30px;
+             color: #ffffff;
+             font-size: 40px;
+             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+         }
+ 
+         h2 {
+             margin-top: 40px;
+             margin-bottom: 10px;
+             color: #C792EA;
+             font-size: 28px;
+         }
+ 
+         h3 {
+             margin-top: 10px;
+             margin-bottom: 10px;
+             font-weight: bold;
+             color: #C792EA;
+             font-size: 18px;
+         }
+ 
+         .stats-container {
+             background-color: rgba(0, 0, 0, 0.7);
+             padding: 20px;
+             border-radius: 5px;
+             margin-top: 30px;
+         }
+ 
+         ul {
+             list-style: none;
+             padding: 0;
+         }
+ 
+         li {
+             margin-bottom: 10px;
+         }
+ 
+         .playlist-cover {
+             display: block;
+             width: 200px;
+             height: 200px;
+             margin: 20px auto;
+             border-radius: 5px;
+             overflow: hidden;
+         }
+ 
+         .playlist-cover img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+         }
+ 
+         .chart-container {
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             margin-top: 40px;
+             margin-bottom: 120px; /* Added margin-bottom for spacing */
+         }
+ 
+         .chart-row {
+             display: flex;
+             justify-content: space-between;
+             margin-top: 30px;
+         }
+ 
+         .chart-item {
+             text-align: center;
+         }
+ 
+         img {
+             max-width: 900px;
+             max-height: 500px;
+             border-radius: 5px;
+             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+         }
+         
+         .small-image {
+             max-width: 350px;
+             max-height: 350px;
+             margin-right: 50px;
+             margin-left: 50px;
+         }
+         
+         .chart-item.small-image img {
+             max-width: 100%;
+             max-height: 100%;
+         }
+     </style>
+ </head>
+ <body>
+     <h1>Playlist: {{ name }}</h1>
+     <h3 style="text-align: center; color: #ffffff;">Created by: {{ owner }}</h3>
+     <div class="playlist-cover">
+         <img src="{{ cover }}" alt="Playlist Cover">
+     </div>
+     <div class="stats-container">
+         <h2 style="text-align: center; color: #C792EA;">Playlist Stats</h2>
+         <ul>
+             <li><strong>Song Count:</strong> {{ song_count }}</li>
+             <li><strong>Total Length:</strong> {{ length }}</li>
+             <li><strong>Average Time:</strong> {{ average_time }}</li>
+             <li><strong>Artists Frequency:</strong> {{ art_freq }}</li>
+             <li><strong>Time Period:</strong> {{ time_period }}</li>
+         </ul>
+     </div>
+     <div class="chart-container">
+        <h2 style="text-align: center; color: #C792EA;">Most Popular Tracks</h2>
+         <div class="chart-row">
+             <div class="chart-item small-image">
+                 <img src="{{ pop1 }}" alt="Image 1">
+                 <h3>{{ pop1_name }} - {{pop1_artist}}</h3>
+                 <p>Popularity Score: {{pop1_rating}}</p>
+             </div>
+             <div class="chart-item small-image">
+                 <img src="{{ pop2 }}" alt="Image 2">
+                 <h3>{{ pop2_name }} - {{pop2_artist}}</h3>
+                 <p>Popularity Score: {{pop2_rating}}</p>
+             </div>
+             <div class="chart-item small-image">
+                 <img src="{{ pop3 }}" alt="Image 3">
+                 <h3>{{ pop3_name }} - {{pop3_artist}}</h3>
+                 <p>Popularity Score: {{pop3_rating}}</p>
+             </div>
+         </div>
+     </div>
+     <div class="chart-container">
+         <h2 style="text-align: center; color: #C792EA;">Artist Distribution</h2>
+         <img src="{{ bar_chart }}" alt="Genre Distribution Bar Chart">
+         <h3 style="text-align: center;">Bar Chart</h3>
+     </div>
+     <div class="chart-container">
+         <img src="{{ pie_chart }}" alt="Genre Distribution Pie Chart">
+         <h3 style="text-align: center;">Pie Chart</h3>
+     </div>
+ </body>
+ </html>
+ 
+ 
